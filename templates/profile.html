@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}profile{% endblock %}
+
+{% block content %}
+  <main>
+    <div>
+      <h3>Ваши ссылки</h3>
+      {% for i in userlinks:%}
+      <div class="div_profile_link">
+        <p>{{i[0]}}</p>
+        <p>{{i[1]}}</p>
+        <p>{{i[2]}}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </main>
+{% endblock %}

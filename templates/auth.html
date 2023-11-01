@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Auth{% endblock %}
+
+{% block content %}
+  <main>
+      <div class="div_auth div_user">
+        <form class="form_auth form" method="post">
+          <h2>Вход</h2>
+          <div>
+            <img class="form_auth_img" src="/static/img/user.svg">
+            <input class="form_input" type="text" name="login" placeholder="Логин">
+          </div>
+          <div>
+            <img class="form_auth_img" src="/static/img/lock.svg">
+            <input class="form_input" type="password" name="password" placeholder="Пароль">
+          </div>
+          <p class="error">{{massage}}</p>
+          <button class="form_auth_btn">Войти</button>
+        </form>
+      </div>
+  </main>
+{% endblock %}

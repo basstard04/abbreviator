@@ -1,0 +1,155 @@
+* {
+   padding: 0px;
+   margin: 0px;
+}
+
+main{
+   width: 1240px;
+   margin: auto;
+}
+
+header{
+   display: grid;
+   grid-template-columns: 35px 1fr;
+   align-items: center;
+   gap: 10px;
+   width: 100%;
+   height: 50px;
+   background-color: black;
+   margin-bottom: 2em;
+}
+
+.div_header{
+   display: grid;
+   grid-template-columns: 35px 85px;
+   align-items: center;
+   gap: 10px;
+}
+
+.div_header_user{
+   display: grid;
+   grid-template-columns: 60px 45px;
+   align-items: center;
+   gap: 10px;
+}
+
+header a{
+   text-decoration: none;
+   color: white;
+}
+
+.form{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 10px;
+   width: 400px;
+   background-color: gainsboro;
+   border: none;
+   border-radius: 3px;
+   margin: auto;
+}
+
+.form h2{
+   color: white;
+   margin-top: 1em;
+   margin-bottom: 5px;
+   width: 210px;
+}
+
+.form_reg{
+   background-color: #26282C;
+}
+
+.form_auth{
+   background-color: #26282C;
+}
+
+.div_reg h3{
+   margin-top: 1em;
+}
+
+.div_reg button{
+   margin-bottom: 2.5em;
+}
+
+.div_auth h3{
+   margin-top: 1em;
+}
+
+.div_auth button{
+   margin-bottom: 2.5em;
+}
+
+.form p{
+   padding: 0px;
+   margin: 0px;
+}
+
+button{
+   background-color: white;
+   border: 1px solid black;
+   border-radius: 3px;
+   padding: 10px;
+   padding-left: 20px;
+   padding-right: 20px;
+}
+
+.div_profile_link{
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   align-items: center;
+   gap: 10px;
+}
+
+.form_input{
+   outline: none;
+   border: none;
+   border-bottom: 1px solid black;
+   background-color: #26282C;
+   padding: 5px;
+   border: 1px solid white;
+   border-left: none;
+   color: white;
+}
+
+.form_auth_img{
+   width: 25px;
+   height: 25px;
+   border: 1px solid black;
+   padding: 5px;
+   filter: invert(1);
+}
+
+.div_auth div{
+   display:grid;
+   grid-template-columns: auto 1fr;
+   justify-content: center;
+   width: 210px;
+}
+
+.div_reg div{
+   display:grid;
+   grid-template-columns: auto 1fr;
+   justify-content: center;
+   width: 210px;
+}
+
+.form_auth_btn{
+   background-color: #9bbb56;
+   color: white;
+   border: none;
+   width: 210px;
+}
+
+.form_reg_btn{
+   background-color: #9bbb56;
+   color: white;
+   border: none;
+   width: 210px;
+}
+
+.error{
+   color: red;
+}

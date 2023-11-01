@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="static/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <a href="/">Logo</a>
+      {% if 'user' in session: %}
+      <div class="div_header_user">
+        <a href="/profile">Профиль</a>
+        <a href="/logout">Выйти</a>
+      </div>
+      {% else: %}
+      <div class="div_header">
+        <a href="/auth">Вход</a>
+        <a href="/reg">Регистрация</a>
+      </div>
+      {% endif %}
+    </header>
+    {% block content %}{% endblock %}
+    <footer></footer>
+  </body>
+</html>
