@@ -22,10 +22,10 @@ def index():
     if long_link != None:
         if 'user' in session:
             user_short_link = ""
-            user_short_link = "https://" + hashlib.md5(long_link.encode()).hexdigest()[:random.randint(8, 12)]
+            user_short_link = hashlib.md5(long_link.encode()).hexdigest()[:random.randint(8, 12)]
             addLink(long_link,user_short_link,accesses,session['user'])
         else:
-            massage = 'Войдите чтобы сокращать ссылки'
+            massage = 'войдите, чтобы использовать сокращатель'
     return render_template("index.html", massage=massage)
 
 @app.route('/auth', methods=['post', 'get'])
@@ -38,16 +38,16 @@ def auth():
         if login != "" and password != "":
             if len(user) != 0:
                 if check_password_hash(user[0], password) == True:
-                    massage = 'Вы вошли'
+                    massage = 'вы успешно вошли'
                     auth_user = searchUserId(login)[0]
                     session['user'] = auth_user
                     return redirect('/profile')
                 else:
-                    massage = 'Неверный пароль'
+                    massage = 'неверный пароль'
             else:
-                massage = 'Такой пользователя нет'
+                massage = 'такого пользователя нет'
         else:
-            massage = 'Неверный логин или пароль'
+            massage = 'ваш логин или пароль неправильный'
 
     return render_template("auth.html", massage=massage)
 
@@ -63,15 +63,15 @@ def reg():
             if user == None:
                 if confirmPassword == password:
                     hash_password = generate_password_hash(password)
-                    registration(login, hash_password)
+                    registr(login, hash_password)
                 else:
-                    massage = 'Пароли не совпадают'
+                    massage = 'пароли не совпадают'
             else:
-                massage = 'Такой пользователь уже зарегестрирован'
+                massage = 'такой пользователь уже есть'
         else:
-            massage = 'Неверный логин или пароль'
+            massage = 'ваш логин или пароль неправильный'
 
-    return render_template("reg.html", massage=massage)
+    return render_template("registr.html", massage=massage)
 
 @app.route('/profile', methods=['post', 'get'])
 def profile():

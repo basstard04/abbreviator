@@ -1,9 +1,20 @@
 {% extends "base.html" %}
 
-{% block title %}profile{% endblock %}
+{% block title %}Профиль{% endblock %}
 
 {% block content %}
   <main>
+    <!--<table>
+        {% for i in userlinks:%}
+        <div class="div_profile_link">
+        <tr>
+          <td>{{i[0]}}</td>
+          <td>{{i[1]}}</td>
+          <td>{{i[2]}}</td>
+        </tr>
+          </div>
+        {% endfor %}
+        </table>-->
     <div>
       <h3>Ваши ссылки</h3>
       {% for i in userlinks:%}
