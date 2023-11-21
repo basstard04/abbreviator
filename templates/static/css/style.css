@@ -148,10 +148,26 @@ button,.form_reg_btn,.form_auth_btn{
    height: 33px;
 }
 
+.a{
+color: black;
+}
+
 .error{
    color: red;
 }
 
+.div_error{
+    display:grid;
+    background-color: #6A5ACD;
+   grid-template-columns: auto 1fr;
+   justify-content: center;
+   width: 340px;
+   padding: 5px;
+   align-items: center;
+   margin-left: 580px;
+   border-radius: 25px;
+   border: 2px black solid;
+}
 /*
 table{
 display: grid;

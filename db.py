@@ -29,7 +29,7 @@ primary key ("id" AUTOINCREMENT)
 );''')
 connect.commit()
 
-#регистрация
+#Регистрация
 def registration(login,password):
     cursor.execute('''INSERT INTO
         users (login,password)

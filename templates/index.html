@@ -6,20 +6,20 @@
   <main>
     <form class="form_link form" method="post">
       <h2>Сокращение ссылки</h2>
-      <input class="form_input" type="text" name="long_link" placeholder="Введите ссылку">
+      <input class="form_input" type="text" name="long_link" placeholder="Введите ссылку для сокращения">
       {% if 'user' in session: %}
         <select name="accesses">
-          <option value="1">публичный</option>
-          <option value="2">общий</option>
-          <option value="3">приватный</option>
+          <option value="1">Публичный</option>
+          <option value="2">Общий</option>
+          <option value="3">Приватный</option>
         </select>
       {% else: %}
         <p>Войдите, чтобы пользоваться всеми функциями сайта</p>
         <select name="accesses">
-          <option value="1">публичный</option>
+          <option value="1">Публичный</option>
         </select>
       {% endif %}
-      <input class="form_input" type="text" name="pseudonym" placeholder="Псевдоним">
+      <input class="form_input" type="text" name="pseudonym" placeholder="Введите псевдоним">
       <button class="form_link_btn">Сократить</button>
       <p>{{short_link}}</p>
       <p class="error">{{massage}}</p>

@@ -9,7 +9,7 @@ app.config['JWT_SECRET_KEY'] = 'super-secret'
 
 if len(take_accesses()) == 0:
     i = 0
-    accesses = [["public","публичный"],["general","общий"],["private","приватный"]]
+    accesses = [["public","Публичный"],["general","Общий"],["private","Приват"]]
     while i < len(accesses):
         add_accesses(accesses[i][0],accesses[i][1])
         i = i + 1
@@ -32,7 +32,7 @@ def index():
                         short_link = hosthref + "host/" + pseudonym
                         add_link(long_link, pseudonym, accesses, session['user'])
                     else:
-                        massage = 'Данный псевдоним занят'
+                        massage = 'Этот псевдоним уже занят'
                 else:
                     user_short_link = hashlib.md5(long_link.encode()).hexdigest()[:random.randint(8, 12)]
                     short_link = hosthref + "host/" + user_short_link
@@ -46,7 +46,7 @@ def index():
                     short_link = hosthref + "host/" + pseudonym
                     add_link(long_link, pseudonym, accesses, None)
                 else:
-                    massage = 'Данный псевдоним занят'
+                    massage = 'Этот псевдоним уже занят'
             else:
                 user_short_link = hashlib.md5(long_link.encode()).hexdigest()[:random.randint(8, 12)]
                 short_link = hosthref + "host/" + user_short_link
@@ -67,11 +67,11 @@ def auth():
                     session['user'] = auth_user
                     return redirect('/profile')
                 else:
-                    massage = 'Неверный пароль'
+                    massage = 'Вы ввели неверный пароль'
             else:
-                massage = 'Такой пользователя нет'
+                massage = 'Такого пользователя нет'
         else:
-            massage = 'Неверный логин или пароль'
+            massage = 'Вы ввели неверный логин или пароль'
 
     return render_template("auth.html", massage=massage)
 
@@ -90,9 +90,9 @@ def reg():
                 session['user'] = auth_user
                 return redirect('/profile')
             else:
-                massage = 'Такой пользователь уже зарегестрирован'
+                massage = 'Такой пользователь уже есть'
         else:
-            massage = 'Неверный логин или пароль'
+            massage = 'Вы ввели неверный логин или пароль'
 
     return render_template("registr.html", massage=massage)
 
@@ -114,7 +114,7 @@ def profile():
                 return redirect('/profile')
             else:
                 if len(take_pseudonym(short)) > 0:
-                    massage = 'Данный псевдоним занят'
+                    massage = 'Этот псевдоним уже занят'
                 else:
                     update_link(long, short, access, session['user'])
                     return redirect('/profile')
