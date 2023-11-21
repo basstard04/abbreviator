@@ -1,27 +1,41 @@
 {% extends "base.html" %}
 
-{% block title %}Профиль{% endblock %}
+{% block title %}profile{% endblock %}
 
 {% block content %}
   <main>
-    <!--<table>
-        {% for i in userlinks:%}
-        <div class="div_profile_link">
-        <tr>
-          <td>{{i[0]}}</td>
-          <td>{{i[1]}}</td>
-          <td>{{i[2]}}</td>
-        </tr>
-          </div>
-        {% endfor %}
-        </table>-->
     <div>
       <h3>Ваши ссылки</h3>
-      {% for i in userlinks:%}
+      {% for i in links:%}
       <div class="div_profile_link">
         <p>{{i[0]}}</p>
-        <p>{{i[1]}}</p>
+        <a href={{hosthref}}host/{{i[1]}}>{{hosthref}}host/{{i[1]}}</a>
         <p>{{i[2]}}</p>
+        <p>{{i[3]}}</p>
+        <form method="post">
+          <select name="access">
+            {% if i[4] == 2: %}
+              <option value="1">публичный</option>
+              <option selected value="2">общий</option>
+              <option value="3">приватный</option>
+            {% elif i[4] == 3: %}
+              <option value="1">публичный</option>
+              <option value="2">общий</option>
+              <option selected value="3">приватный</option>
+            {% else %}
+              <option value="1">публичный</option>
+              <option value="2">общий</option>
+              <option value="3">приватный</option>
+            {% endif %}
+          </select>
+          <input type="text" name="short" value={{i[1]}} />
+          <input type="hidden" name="long" value={{i[0]}}>
+          <p>{{massage}}</p>
+          <button value={{i[0]}} name="btn_edit">Редактировать</button>
+        </form>
+        <form method="post">
+          <button value={{i[0]}} name="btn_delete">Удалить</button>
+        </form>
       </div>
       {% endfor %}
     </div>

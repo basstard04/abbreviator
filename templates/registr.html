@@ -7,15 +7,10 @@
       <div class="div_reg">
         <form class="form_reg form" method="post">
           <h2>Регистрация</h2>
-          <div>
-            <input class="form_input" type="text" name="login" placeholder="Логин">
-          </div>
-          <div>
-            <input class="form_input" type="password" name="password" placeholder="Пароль">
-          </div>
-          <div>
-            <input class="form_input" type="password" name="confirm_password" placeholder="Подтвердите пароль">
-          </div>
+          <input class="form_input" type="text" name="login" placeholder="Логин">
+          <input class="form_input" type="password" name="password" placeholder="Пароль">
+          <input class="form_input" type="password" name="confirm_password" placeholder="Подтвердите пароль">
+          <a class="a" href="/auth">Войти</a>
           <p class="error">{{massage}}</p>
           <button class="form_reg_btn">Зарегестрироваться</button>
         </form>

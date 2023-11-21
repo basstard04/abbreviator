@@ -1,18 +1,27 @@
 {% extends "base.html" %}
 
-{% block title %}Сокращатель{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block content %}
   <main>
     <form class="form_link form" method="post">
-      <label><h2>Введите ссылку</h2></label>
-      <select name="accesses">
-        <option value="1">публичный</option>
-        <option value="2">приватный</option>
-        <option value="3">общий</option>
-      </select>
-      <input type="text" name="long_link">
-      <button>Сократить</button>
+      <h2>Сокращение ссылки</h2>
+      <input class="form_input" type="text" name="long_link" placeholder="Введите ссылку">
+      {% if 'user' in session: %}
+        <select name="accesses">
+          <option value="1">публичный</option>
+          <option value="2">общий</option>
+          <option value="3">приватный</option>
+        </select>
+      {% else: %}
+        <p>Войдите, чтобы пользоваться всеми функциями сайта</p>
+        <select name="accesses">
+          <option value="1">публичный</option>
+        </select>
+      {% endif %}
+      <input class="form_input" type="text" name="pseudonym" placeholder="Псевдоним">
+      <button class="form_link_btn">Сократить</button>
+      <p>{{short_link}}</p>
       <p class="error">{{massage}}</p>
     </form>
   </main>

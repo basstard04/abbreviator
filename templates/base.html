@@ -9,15 +9,15 @@
   </head>
   <body>
     <header>
-      <a href="/">Сократить ссылку</a>
+      <a href="/">Главная</a>
       {% if 'user' in session: %}
       <div class="div_header_user">
         <a href="/profile">Профиль</a>
-        <!--<a href="/logout">Выйти</a>-->
+        <a href="/logout">Выйти</a>
       </div>
       {% else: %}
       <div class="div_header">
-        <a href="/auth">Войти</a>
+        <a href="/auth">Вход</a>
         <a href="/reg">Регистрация</a>
       </div>
       {% endif %}
