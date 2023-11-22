@@ -77,7 +77,7 @@ def add_accesses(level_eng,level_ru):
     return "Добавление категории прошло успешно"
 
 def take_user_links(user_id):
-    return cursor.execute('''SELECT links.long, links.short, links.count, accesses.level_ru
+    return cursor.execute('''SELECT links.long, links.short, links.count, accesses.level_ru, accesses.id
     FROM links
     INNER JOIN accesses ON accesses.id = links.access_id
     WHERE links.owner_id = ?
@@ -110,6 +110,11 @@ def delete_link(long_link, user_id):
     WHERE long = ? AND owner_id = ?''',(long_link,user_id))
     connect.commit()
     return "Удалил"
+
+def take_user_link(long, owner_id):
+    return cursor.execute('''SELECT short
+    FROM links
+    WHERE long = ? AND owner_id = ?''',(long,owner_id)).fetchone()
 
 def take_link_info(short):
     return cursor.execute('''SELECT long, count, access_id, owner_id

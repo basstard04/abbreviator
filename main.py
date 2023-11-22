@@ -103,13 +103,19 @@ def profile():
     links = take_user_links(session['user'])
     hosthref = request.host_url
     massage = ""
-
     if btn_edit:
         long = request.form.get('long')
         short = request.form.get('short')
         access = request.form.get('access')
-        if long != None and short != None:
-            if links[0][2] != access and take_pseudonym(short) == 0:
+        print(access)
+        print(take_pseudonym(short))
+        print(take_user_link(long,session['user']))
+        if long != None:
+            if short == "":
+                user_short_link = hashlib.md5(long.encode()).hexdigest()[:random.randint(8, 12)]
+                update_link(long, user_short_link, access, session['user'])
+                return redirect('/profile')
+            if links[0][2] != access and (take_pseudonym(short) == 0 or short == take_user_link(long,session['user'])[0]):
                 update_link(long, short, access, session['user'])
                 return redirect('/profile')
             else:

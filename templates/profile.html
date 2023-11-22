@@ -8,9 +8,9 @@
       <h3>Ваши ссылки</h3>
       {% for i in links:%}
       <div class="div_profile_link">
-        <p>{{i[0]}}</p>
+        <p class="div_profile_link_p">{{i[0]}}</p>
         <a href={{hosthref}}host/{{i[1]}}>{{hosthref}}host/{{i[1]}}</a>
-        <p>{{i[2]}}</p>
+        <p>кол-во переходов: {{i[2]}}</p>
         <p>{{i[3]}}</p>
         <form method="post">
           <select name="access">
@@ -34,7 +34,7 @@
           <button value={{i[0]}} name="btn_edit">Редактировать</button>
         </form>
         <form method="post">
-          <button value={{i[0]}} name="btn_delete">Удалить</button>
+          <button value={{i[0]}} name="btn_delete" id={{i[0]}}>Удалить</button>
         </form>
       </div>
       {% endfor %}
