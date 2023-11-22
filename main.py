@@ -142,7 +142,6 @@ def error():
 def link(shortlink):
     if len(take_link_info(shortlink)) != 0:
         user_link = take_link_info(shortlink)[0]
-        print(user_link)
         count = user_link[1]
         if user_link[2] == 1:
             update_count(user_link[0],count + 1)
